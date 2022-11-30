@@ -1,0 +1,1 @@
+without energy these words will disappear
