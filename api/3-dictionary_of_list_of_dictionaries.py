@@ -8,7 +8,7 @@ import requests
 from sys import argv
 
 
-def all_tasks_to_json():
+def export():
     """
     Return API data
     """
@@ -40,4 +40,4 @@ def all_tasks_to_json():
 
 
 if __name__ == "__main__":
-    all_tasks_to_json()
+    export()

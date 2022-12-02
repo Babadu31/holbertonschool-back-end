@@ -8,7 +8,7 @@ import requests
 from sys import argv
 
 
-def json():
+def jsonform():
     """
     return API data
     """
@@ -36,4 +36,4 @@ def json():
 
 
 if __name__ == "__main__":
-    json()
+    jsonform()

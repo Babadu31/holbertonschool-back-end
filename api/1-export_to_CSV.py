@@ -7,7 +7,7 @@ import requests
 from sys import argv
 
 
-def csv():
+def csvformat():
     """
     Return API data
     """
@@ -36,4 +36,4 @@ def csv():
 
 
 if __name__ == "__main__":
-    csv()
+    csvformat()
