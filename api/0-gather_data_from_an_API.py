@@ -1,21 +1,36 @@
 #!/usr/bin/python3
-
-import urllib 
+"""
+Import modules
+"""
 import requests
-from flask import Flask
+from sys import argv
 
-app = Flask(__name__)
 
-EMPLOYEE_NAME = ''
-NUMBER_OF_DONE_TASKS = 
-TOTAL_NUMBER_OF_TASKS = 
+def api():
+    """
+    Return API data
+    """
+    users = requests.get("http://jsonplaceholder.typicode.com/users")
+    for u in users.json():
+        if u.get('id') == int(argv[1]):
+            EMPLOYEE_NAME = (u.get('name'))
+            break
+    TOTAL_NUM_OF_TASKS = 0
+    NUMBER_OF_DONE_TASKS = 0
+    TASK_TITLE = []
+    todos = requests.get("http://jsonplaceholder.typicode.com/todos")
+    for t in todos.json():
+        if t.get('userId') == int(argv[1]):
+            TOTAL_NUM_OF_TASKS += 1
+            if t.get('completed') is True:
+                NUMBER_OF_DONE_TASKS += 1
+                TASK_TITLE.append(t.get('title'))
+    print("Employee {} is done with tasks({}/{}):".format(EMPLOYEE_NAME,
+                                                          NUMBER_OF_DONE_TASKS,
+                                                          TOTAL_NUM_OF_TASKS))
+    for task in TASK_TITLE:
+        print("\t {}".format(task))
 
-@app.route
- 
- 
- 
- 
- 
- fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => response.json())
-  .then(json => console.log(json))
+
+if __name__ == "__main__":
+    api()
