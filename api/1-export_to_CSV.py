@@ -22,7 +22,6 @@ def csvformat():
         if t.get('userId') == int(argv[1]):
             TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
 
-
     filename = "{}.csv".format(argv[1])
     with open(filename, "w") as csvfile:
         fieldnames = ["USER_ID", "USERNAME",
